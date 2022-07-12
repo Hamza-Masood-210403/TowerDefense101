@@ -8,8 +8,6 @@ public class CameraController : MonoBehaviour {
 	public float scrollSpeed = 5f;
 	public float minY = 10f;
 	public float maxY = 80f;
-	public float rotation_Speed = 10f;
-	private Quaternion Local_Rotation;
 
 	// Update is called once per frame
 	void Update () {
@@ -20,27 +18,19 @@ public class CameraController : MonoBehaviour {
 			return;
 		}
 
-		//Rotating the Camera
-	
-		// if(Input.GetKey("q"))
-		// {
-		// 	Local_Rotation = Quaternion.Euler(0.0f, Time.deltaTime*rotation_Speed, 0.0f);
-		// 	transform.rotation = Local_Rotation;
-		// }
-
-		if (Input.GetKey("w")) // || Input.mousePosition.y >= Screen.height - panBorderThickness)
+		if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
 		{
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
 		}
-		if (Input.GetKey("s")) // || Input.mousePosition.y <= panBorderThickness)
+		if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
 		{
 			transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
 		}
-		if (Input.GetKey("d")) // || Input.mousePosition.x >= Screen.width - panBorderThickness)
+		if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
 		{
 			transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
 		}
-		if (Input.GetKey("a")) // || Input.mousePosition.x <= panBorderThickness)
+		if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
 		{
 			transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
 		}
